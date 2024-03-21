@@ -7,8 +7,6 @@ import service.ReaderService;
 import service.serviceImpl.BookServiceImpl;
 import service.serviceImpl.LibraryServiceImpl;
 import service.serviceImpl.ReaderServiceImpl;
-
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -182,6 +180,7 @@ public class Main {
                                 "3. Посмотреть книгу \n" +
                                 "4. Удалить книгу \n" +
                                 "5. Очистить книги в библиотеке  \n" +
+                                "6. Выйти\n" +
                                 "       Выберите команду: ");
                         int choiceBookCommand = scannerNum.nextInt();
                         switch (choiceBookCommand) {
@@ -235,6 +234,10 @@ public class Main {
                             case 5: {
                                 System.out.println("Введите ID библиотеки которую хотите очистить");
                                 bookService.clearBooksByLibraryId(scannerNum.nextLong());
+                                break;
+                            }
+                            case 6: {
+                                isTrue = true;
                                 break;
                             }
                         }

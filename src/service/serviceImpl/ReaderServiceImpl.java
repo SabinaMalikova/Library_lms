@@ -75,8 +75,8 @@ public class ReaderServiceImpl implements ReaderService {
         try {
             for (Library library: DataBase.libraries){
                 for (Reader reader: DataBase.readers){
-                    if (library.getId()==libraryId){
-                        if (reader.getId()==readerId) {
+                    if (library.getId().equals(libraryId)){
+                        if (reader.getId().equals(readerId)) {
                             library.getReaders().add(reader);
                             System.out.println("Читатель "+reader.getFullName() + " успешно назначен ");
                         }
