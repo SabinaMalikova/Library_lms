@@ -1,5 +1,6 @@
 package service.serviceImpl;
 
+import exceptions.MyExceptions;
 import models.Book;
 import models.DataBase;
 import models.Library;
@@ -30,10 +31,10 @@ public class BookServiceImpl implements BookService {
                 if (library.getId().equals(libraryId)) {
                     return library.getBooks();
                 } else {
-                    System.out.println("не найдено");
+                    throw new MyExceptions("id неверный");
                 }
             }
-        }catch (NoSuchElementException e){
+        } catch (MyExceptions e) {
             System.out.println(e.getMessage());
 
         }
@@ -51,10 +52,10 @@ public class BookServiceImpl implements BookService {
                         }
                     }
                 } else {
-                    System.out.println("не найдено");
+                    throw new MyExceptions("id неверный");
                 }
             }
-        }catch (NoSuchElementException e){
+        } catch (MyExceptions e) {
             System.out.println(e.getMessage());
         }
         return null;
@@ -72,10 +73,10 @@ public class BookServiceImpl implements BookService {
                         }
                     }
                 } else {
-                    System.out.println("не найдено");
+                    throw new MyExceptions("id неверный");
                 }
             }
-        }catch (NoSuchElementException e){
+        } catch (MyExceptions e) {
             System.out.println(e.getMessage());
         }
         return null;
@@ -89,10 +90,10 @@ public class BookServiceImpl implements BookService {
                     library.getBooks().clear();
                     System.out.println("успешно очищено");
                 } else {
-                    System.out.println("не найдено");
+                    throw new MyExceptions("id неверный");
                 }
             }
-        }catch (NoSuchElementException e){
+        } catch (MyExceptions e) {
             System.out.println(e.getMessage());
         }
     }
